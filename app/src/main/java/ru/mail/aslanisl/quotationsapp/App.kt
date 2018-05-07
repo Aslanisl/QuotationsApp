@@ -1,6 +1,8 @@
 package ru.mail.aslanisl.quotationsapp
 
 import android.app.Application
+import com.crashlytics.android.Crashlytics
+import io.fabric.sdk.android.Fabric
 import io.realm.Realm
 import ru.mail.aslanisl.quotationsapp.di.component.AppComponent
 import ru.mail.aslanisl.quotationsapp.di.component.DaggerAppComponent
@@ -22,6 +24,7 @@ class App : Application() {
         super.onCreate()
         instance = this
         Realm.init(this)
+        Fabric.with(this, Crashlytics())
 
         appComponent = DaggerAppComponent.builder().build()
     }
