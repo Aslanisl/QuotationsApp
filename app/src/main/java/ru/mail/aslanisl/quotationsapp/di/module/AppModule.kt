@@ -3,8 +3,8 @@ package ru.mail.aslanisl.quotationsapp.di.module
 import dagger.Module
 import dagger.Provides
 import ru.mail.aslanisl.quotationsapp.data.DatabaseHelper
-import ru.mail.aslanisl.quotationsapp.domain.QuotationRepository
-import ru.mail.aslanisl.quotationsapp.domain.QuotationRepositoryImpl
+import ru.mail.aslanisl.quotationsapp.domain.repository.QuotationRepository
+import ru.mail.aslanisl.quotationsapp.domain.repository.QuotationRepositoryImpl
 import ru.mail.aslanisl.quotationsapp.network.Api
 import ru.mail.aslanisl.quotationsapp.network.ApiBuilder
 import javax.inject.Singleton

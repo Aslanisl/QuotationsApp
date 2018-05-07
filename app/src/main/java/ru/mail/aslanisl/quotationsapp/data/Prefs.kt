@@ -1,4 +1,4 @@
-package ru.mail.aslanisl.quotationsapp.domain
+package ru.mail.aslanisl.quotationsapp.data
 
 import android.content.Context
 import android.content.SharedPreferences

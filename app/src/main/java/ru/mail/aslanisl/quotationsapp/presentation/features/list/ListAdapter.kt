@@ -11,7 +11,7 @@ import ru.mail.aslanisl.quotationsapp.network.model.SymbolModel
 /**
  * Created by Ivan on 06.05.2018.
  */
-class ListAdapter : RecyclerView.Adapter<ListAdapter.ListViewHolder>() {
+class ListAdapter(val listener: ((String) -> Unit)? = null) : RecyclerView.Adapter<ListAdapter.ListViewHolder>() {
 
     private val items = mutableListOf<SymbolModel>()
 
@@ -32,10 +32,16 @@ class ListAdapter : RecyclerView.Adapter<ListAdapter.ListViewHolder>() {
 
     override fun getItemCount() = items.size
 
-    class ListViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
+    inner class ListViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
         private val titleText = itemView.findViewById<TextView>(R.id.item_list_title)
+        private var idItem: String? = null
+
+        init {
+            itemView.setOnClickListener { idItem?.let { listener?.invoke(it) } }
+        }
 
         fun init(model: SymbolModel) {
+            idItem = model.symbol
             titleText.text = model.symbol
         }
     }
